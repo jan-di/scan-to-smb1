@@ -1,9 +1,17 @@
 # SMB1-Proxy #
 
-![](https://img.shields.io/docker/pulls/jandi/smb1-proxy)
-![](https://img.shields.io/docker/image-size/jandi/smb1-proxy)
+[
+  ![](https://img.shields.io/docker/v/jandi/smb1-proxy)
+  ![](https://img.shields.io/docker/pulls/jandi/smb1-proxy)
+  ![](https://img.shields.io/docker/stars/jandi/smb1-proxy)
+  ![](https://img.shields.io/docker/image-size/jandi/smb1-proxy)
+  ![](https://img.shields.io/docker/cloud/build/jandi/smb1-proxy)
+](https://hub.docker.com/repository/docker/jandi/smb1-proxy)
 
 This container is used to proxy an existing secure smb share (version 2+) to allow devices, that only support cifs/smb v1 the access to a specific share or folder on the secure share - without downgrading the complete server to smb v1.
+
+* GitHub: [jan-di/smb1-proxy](https://github.com/jan-di/smb1-proxy)
+* Docker Hub: [jandi/smb1-proxy](https://hub.docker.com/repository/docker/jandi/smb1-proxy)
 
 ## Usage ##
 
