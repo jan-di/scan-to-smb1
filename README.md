@@ -1,7 +1,7 @@
 # Scan-to-SMB1 #
 
 [
-  ![](https://img.shields.io/docker/v/jandi/scan-to-smb1)
+  ![](https://img.shields.io/docker/v/jandi/scan-to-smb1?sort=semver)
   ![](https://img.shields.io/docker/pulls/jandi/scan-to-smb1)
   ![](https://img.shields.io/docker/stars/jandi/scan-to-smb1)
   ![](https://img.shields.io/docker/image-size/jandi/scan-to-smb1)
