@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
-import time
-import glob
-import os
-import shutil
+import glob, os, shutil, time
 
 print('File watcher started')
 

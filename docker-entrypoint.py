@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-import os
-import subprocess
+import os, subprocess
 
 linuxUserId = os.getenv('USERID')
 linuxGroupId = os.getenv('GROUPID')

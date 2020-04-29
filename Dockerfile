@@ -10,12 +10,10 @@ COPY ./supervisord.conf /etc/supervisord.conf
 COPY ./watcher.py /watcher.py
 
 # Docker Healthcheck
-COPY ./docker-healthcheck.sh /docker-healthcheck.sh
-RUN chmod +x /docker-healthcheck.sh
+COPY ./docker-healthcheck.py /docker-healthcheck.py
 HEALTHCHECK --interval=30s --timeout=15s --start-period=5s --retries=3 \
-    CMD ["/docker-healthcheck.sh"]
+    CMD ["python3", "-u", "/docker-healthcheck.py"]
 
 # Docker Entrypoint
 COPY ./docker-entrypoint.py /docker-entrypoint.py
-RUN chmod +x /docker-entrypoint.py
-ENTRYPOINT ["/docker-entrypoint.py"]
+ENTRYPOINT ["python3", "-u", "/docker-entrypoint.py"]
