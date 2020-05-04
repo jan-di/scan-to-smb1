@@ -33,7 +33,7 @@ while True:
   ))
   os.mkdir(remoteMount)
   subprocess.call("chown {}:{} {}".format(linuxUserId, linuxGroupId, remoteMount), shell=True)
-  os.system('mount -t cifs -o username={username},password={password},domain={domain},vers={vers},uid={uid},gid={gid} "{share}" "{directory}"'.format(
+  ret = subprocess.call('mount -t cifs -o username={username},password={password},domain={domain},vers={vers},uid={uid},gid={gid} "{share}" "{directory}"'.format(
     domain = remoteDomain,
     username = remoteUsername,
     password = remotePassword,
@@ -42,7 +42,11 @@ while True:
     gid = linuxGroupId,
     share = remotePath,
     directory = remoteMount
-  ))
+  ), shell=True)
+  if ret != 0:
+    os.rmdir(remoteMount)
+    print("Mounting failed!")
+    exit(1)
 
   # Samba Share
   print("Setting up share '{share}' for User '{username}' at '{directory}'".format(
@@ -59,4 +63,4 @@ os.environ['USER'] = "{};{}".format(sambaUsername, sambaPassword)
 os.environ['RECYCLE'] = "x" # disable recycle bin
 os.environ['SMB'] = "x" # disable SMB2 minimum version
 
-os.system('/usr/bin/supervisord -c /etc/supervisord.conf')
+subprocess.call('/usr/bin/supervisord -c /etc/supervisord.conf', shell=True)
