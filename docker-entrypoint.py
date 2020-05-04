@@ -33,7 +33,7 @@ while True:
   ))
   os.mkdir(remoteMount)
   subprocess.call("chown {}:{} {}".format(linuxUserId, linuxGroupId, remoteMount), shell=True)
-  os.system('mount -t cifs -o username={username},password={password},domain={domain},vers={vers},uid={uid},gid={gid} {share} {directory}'.format(
+  os.system('mount -t cifs -o username={username},password={password},domain={domain},vers={vers},uid={uid},gid={gid} "{share}" "{directory}"'.format(
     domain = remoteDomain,
     username = remoteUsername,
     password = remotePassword,
