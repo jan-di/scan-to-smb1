@@ -15,10 +15,12 @@ while True:
 
   remoteMount = '/remote{}'.format(i)
 
+  checkFile = remoteMount + "/healthcheck.txt"
   try:
-    file = open(remoteMount + "/healthcheck.txt", "w") 
+    file = open(checkFile, "w") 
     file.write("healthcheck") 
     file.close()
+    os.remove(checkFile)
   except OSError:
     fail = True
     print(remoteMount + " is not writeable")
