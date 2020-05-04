@@ -7,14 +7,20 @@ linuxGroupId = os.getenv('GROUPID')
 sambaUsername = os.getenv('SAMBA_USERNAME')
 sambaPassword = os.getenv('SAMBA_PASSWORD')
 
+totalProxyCount = 0
+enabledProxyCount = 0
+
 i = 0
 while True:
   i = i + 1
   shareEnable = os.getenv('PROXY{}_ENABLE'.format(i))
   if shareEnable == None:
     break
-  elif not shareEnable == "1":
+  totalProxyCount += 1
+
+  if not shareEnable == "1":
     continue
+  enabledProxyCount += 1
 
   shareName = os.getenv('PROXY{}_SHARE_NAME'.format(i))
   shareDirectory = '/share{}'.format(i)
@@ -57,6 +63,10 @@ while True:
   os.mkdir(shareDirectory)
   subprocess.call("chown {}:{} {}".format(linuxUserId, linuxGroupId, shareDirectory), shell=True)
   os.environ['SHARE{}'.format(i)] = "{};{};yes;no;no;{}".format(shareName, shareDirectory, sambaUsername)
+
+print("{}/{} enabled Proxies.".format(enabledProxyCount, totalProxyCount))
+if enabledProxyCount == 0:
+  exit(0)
 
 # Global Samba settings
 os.environ['USER'] = "{};{}".format(sambaUsername, sambaPassword)
