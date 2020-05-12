@@ -31,7 +31,7 @@ while True:
       i = 0
       while True:
         i = i + 1
-        remotePath = remoteMount + "/" + name + "_" + str(i) + ext
+        remotePath = remoteMount + "/" + name + '{:04d}'.format(i) + ext
         if not os.path.exists(remotePath):
           break
       
