@@ -4,12 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.3.0] - 2020-05-18
 ### Added
-- Multiple Shared can be defined
+- Multiple Shares can be defined
 
 ## Changed ##
-- Config names are changed to allow multuple shares.
+- Config names are changed to allow multiple shares.
 
 ## [0.2.0] - 2020-04-28
 ### Added
