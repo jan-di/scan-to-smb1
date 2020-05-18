@@ -2,7 +2,6 @@ FROM dperson/samba:amd64
 
 RUN apk add --no-cache --update --upgrade \
     cifs-utils \
-    coreutils \
     python3 \
     supervisor
 
