@@ -61,7 +61,8 @@ while True:
     username = sambaUsername,
     directory = shareDirectory
   ))
-  os.mkdir(shareDirectory)
+  if not os.path.exists(shareDirectory):
+    os.mkdir(shareDirectory)
   subprocess.call("chown {}:{} {}".format(linuxUserId, linuxGroupId, shareDirectory), shell=True)
   os.environ['SHARE{}'.format(i)] = "{};{};yes;no;no;{}".format(shareName, shareDirectory, sambaUsername)
 
